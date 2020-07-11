@@ -1,8 +1,8 @@
 FROM ruby:2.7.1
 
 WORKDIR /barcelona
-# COPY Gemfile /barcelona/Gemfile
-# COPY Gemfile.lock /barcelona/Gemfile.lock
+COPY Gemfile /barcelona/Gemfile
+COPY Gemfile.lock /barcelona/Gemfile.lock
 
 RUN set -x && \
     apt-get -qq update && \
@@ -14,7 +14,7 @@ RUN set -x && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get -qq update && apt-get -y install yarn && \
     echo 'gem: --no-rdoc --no-ri' > ~/.gemrc && \
-    echo bundle install -j4 --path=vendor/bundle
+    bundle install -j4 --path=vendor/bundle
 
 COPY . /barcelona
 
