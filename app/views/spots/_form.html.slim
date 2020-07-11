@@ -1,0 +1,24 @@
+= form_for @spot do |f|
+  - if @spot.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@spot.errors.count, "error")} prohibited this spot from being saved:"
+      ul
+        - @spot.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :postal_code
+    = f.text_field :postal_code
+  .field
+    = f.label :neer_station
+    = f.text_field :neer_station
+  .actions = f.submit

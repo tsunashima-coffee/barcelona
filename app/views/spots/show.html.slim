@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong User:
+  = @spot.user_id
+p
+  strong Name:
+  = @spot.name
+p
+  strong Address:
+  = @spot.address
+p
+  strong Postal code:
+  = @spot.postal_code
+p
+  strong Neer station:
+  = @spot.neer_station
+
+=> link_to 'Edit', edit_spot_path(@spot)
+'|
+=< link_to 'Back', spots_path
