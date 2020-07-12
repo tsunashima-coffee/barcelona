@@ -16,8 +16,8 @@ table.table.table-bordered
   tbody
     - @spots.each do |spot|
       tr
-        td = spot.user_id
-        td = spot.category_id
+        td = @user_name
+        td = spot.category.name
         td = spot.name
         td = spot.address
         td = spot.postal_code
