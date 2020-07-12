@@ -2,10 +2,13 @@ p#notice = notice
 
 p
   strong User:
-  = @spot.user_id
+  = @spot.user.name
 p
   strong Name:
   = @spot.name
+p
+  strong Category:
+  = @spot.category.name
 p
   strong Address:
   = @spot.address

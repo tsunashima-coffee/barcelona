@@ -1,5 +1,7 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new, :create]
+
 
   # GET /spots
   # GET /spots.json
@@ -24,8 +26,9 @@ class SpotsController < ApplicationController
   # POST /spots
   # POST /spots.json
   def create
-    @spot = Spot.new(spot_params)
+    byebug
 
+    @spot = Spot.new(spot_params)
     respond_to do |format|
       if @spot.save
         format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
@@ -62,13 +65,18 @@ class SpotsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_spot
-      @spot = Spot.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def spot_params
-      params.require(:spot).permit(:user_id, :name, :address, :postal_code, :neer_station)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_spot
+    @spot = Spot.find(params[:id])
+  end
+
+  def set_category
+    @categories = Category.all
+  end
+
+  # Only allow a list of trusted parameters through.
+  def spot_params
+    params.require(:spot).permit(:user_id, :category_id, :name, :address, :postal_code, :neer_station)
+  end
 end

@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
   def spots
     @user_name = @user.name
-    @spots = @user.spots.preload(:category)
+    @spots = @user.spots.includes(:preload)
   end
 
   private

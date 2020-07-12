@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(root_path)
+      redirect_back_or_to(spots_user_path(@user))
     else
       render :new
     end
