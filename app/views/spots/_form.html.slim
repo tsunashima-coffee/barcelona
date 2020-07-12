@@ -7,8 +7,7 @@
           li = message
 
   .field
-    = f.label :user_id
-    = f.number_field :user_id
+    = f.hidden_field :user_id, :value => session[:user_id]
   .field
     = f.label :category
     = f.collection_select(:category_id, @categories, :id, :name)
