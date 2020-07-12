@@ -6,7 +6,7 @@ class CreateSpots < ActiveRecord::Migration[6.0]
       t.string :address
       t.string :postal_code
       t.string :neer_station
-
+      
       t.timestamps
     end
   end
