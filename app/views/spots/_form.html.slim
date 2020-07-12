@@ -7,7 +7,7 @@
           li = message
 
   .field
-    = f.hidden_field :user_id, :value => session[:user_id]
+    = f.hidden_field :user_id, value: session[:user_id]
   .field
     = f.label :category
     = f.collection_select(:category_id, @categories, :id, :name)
@@ -24,3 +24,4 @@
     = f.label :neer_station
     = f.text_field :neer_station
   .actions = f.submit
+

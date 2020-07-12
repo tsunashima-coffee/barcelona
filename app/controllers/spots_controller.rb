@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:new, :create, :edit]
+  before_action :set_categories, only: [:new, :create, :edit]
   before_action :set_user, only: [:new, :create, :edit, :show]
 
 
@@ -70,7 +70,7 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
   end
 
-  def set_category
+  def set_categories
     @categories = Category.all
   end
 
