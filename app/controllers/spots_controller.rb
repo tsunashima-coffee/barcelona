@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
-  before_action :set_category, only: [:new, :create]
+  before_action :set_category, only: [:new, :create, :edit]
+  before_action :set_user, only: [:new, :create, :edit, :show]
 
 
   # GET /spots
@@ -26,8 +27,6 @@ class SpotsController < ApplicationController
   # POST /spots
   # POST /spots.json
   def create
-    byebug
-
     @spot = Spot.new(spot_params)
     respond_to do |format|
       if @spot.save
@@ -73,6 +72,10 @@ class SpotsController < ApplicationController
 
   def set_category
     @categories = Category.all
+  end
+
+  def set_user
+    @user = User.find(session[:user_id])
   end
 
   # Only allow a list of trusted parameters through.
