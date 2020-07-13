@@ -2,10 +2,13 @@ p#notice = notice
 
 p
   strong User:
-  = @spot.user_id
+  = @spot.user.name
 p
   strong Name:
   = @spot.name
+p
+  strong Category:
+  = @spot.category.name
 p
   strong Address:
   = @spot.address
@@ -18,4 +21,4 @@ p
 
 => link_to 'Edit', edit_spot_path(@spot)
 '|
-=< link_to 'Back', spots_path
+=< link_to 'Back', spots_user_path(@user)
