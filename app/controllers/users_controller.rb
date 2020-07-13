@@ -64,8 +64,8 @@ class UsersController < ApplicationController
   def spots
     @user_name = @user.name
 
-    if !params[:cotegory].nil?
-      @spots = @user.spots.joins(:category).where(categories: { name: params[:cotegory] })
+    if params[:cotegory_id].present?
+      @spots = @user.spots.where(category_id: params[:cotegory_id])
     else
       @spots = @user.spots
     end
