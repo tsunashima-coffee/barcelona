@@ -1,31 +1,37 @@
 h1
+.container
+  - @categories.each do |category|
+    =radio_button :check1, "", category.id, class: "with-gap"
+    =label_tag :check1, category.name
 
-table.table.table-bordered
-  thead
-    tr
-      th User
-      th Category
-      th Name
-      th Address
-      th Postal code
-      th Neer station
-      th
-      th
-      th
-
-  tbody
-    - @spots.each do |spot|
+  .row
+  table.table.table-bordered
+    thead
       tr
-        td = @user_name
-        td = spot.category.name
-        td = spot.name
-        td = spot.address
-        td = spot.postal_code
-        td = spot.neer_station
-        td = link_to 'Show', spot
-        td = link_to 'Edit', edit_spot_path(spot)
-        td = link_to 'Destroy', spot, data: { confirm: 'Are you sure?' }, method: :delete
+        th User
+        th Category
+        th Name
+        th Address
+        th Postal code
+        th Neer station
+        th
+        th
+        th
+
+    tbody
+      - @spots.each do |spot|
+        tr
+          td = @user_name
+          td = spot.category.name
+          td = spot.name
+          td = spot.address
+          td = spot.postal_code
+          td = spot.neer_station
+          td = link_to 'Show', spot
+          td = link_to 'Edit', edit_spot_path(spot)
+          td = link_to 'Destroy', spot, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Spot', new_spot_path
+.container
+  = link_to 'New Spot', new_spot_path

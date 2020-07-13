@@ -6,22 +6,27 @@
         - @spot.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.hidden_field :user_id, value: session[:user_id]
-  .field
-    = f.label :category
-    = f.collection_select(:category_id, @categories, :id, :name)
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :postal_code
-    = f.text_field :postal_code
-  .field
-    = f.label :neer_station
-    = f.text_field :neer_station
-  .actions = f.submit
+  .row
+  .container
+      .col.s12.z-depth-6.card-panel
+        .field
+          = f.hidden_field :user_id, value: session[:user_id]
 
+        .field
+          = f.label :category
+          = f.collection_select(:category_id, @categories, :id, :name)
+
+        .field 
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+        .field
+          = f.label :address
+          = f.text_field :address, class: 'form-control'
+        .field
+          = f.label :postal_code
+          = f.text_field :postal_code, class: 'form-control'
+        .field
+          = f.label :neer_station
+          = f.text_field :neer_station, class: 'form-control'
+        .row
+        .actions.btn.waves-effect.waves-light.col.s12 = f.submit
