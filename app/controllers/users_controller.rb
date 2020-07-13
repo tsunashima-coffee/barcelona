@@ -63,7 +63,12 @@ class UsersController < ApplicationController
 
   def spots
     @user_name = @user.name
-    @spots = @user.spots
+
+    if !params[:cotegory].nil?
+      @spots = @user.spots.joins(:category).where(categories: { name: params[:cotegory] })
+    else
+      @spots = @user.spots
+    end
   end
 
   private
