@@ -1,9 +1,10 @@
-h1
+h1 = @user.name + "のリスト一覧"
+
 .container
   - @categories.each do |category|
-    =radio_button :check1, "", category.id, class: "with-gap"
-    =label_tag :check1, category.name
-
+    =label_tag
+      =radio_button :check, "", category.id, class: "browser-default"
+      span = category.name
   .row
   table.table.table-bordered
     thead
@@ -34,4 +35,5 @@ h1
 br
 
 .container
-  = link_to 'New Spot', new_spot_path
+  = link_to '新規登録', new_spot_path, class:"btn waves-effect waves-light"
+

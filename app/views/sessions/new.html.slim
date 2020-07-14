@@ -4,11 +4,11 @@ h1
   .container
     .col.s12.z-depth-6.card-panel
       .input-field.col.s12
-        = text_field_tag :email, "", class: 'form-control'
+        = text_field_tag :email, "", class: 'form-control', placeholder: "メールアドレス"
       .input-field.col.s12
-        = password_field_tag :password, "", class: 'form-control'
+        = password_field_tag :password, "", class: 'form-control', placeholder: "パスワード"
       .input-field.col.s12
-        = submit_tag "Login", class: 'btn waves-effect waves-light col s12'
+        = submit_tag "ログインする", class: 'btn waves-effect waves-light col s12'
 
       .input-field.col.s6.m6.l6
-        = link_to "Register", new_user_path, class: 'argin medium-small'
+        = link_to "新規登録", new_user_path, class: 'argin medium-small'

@@ -1,9 +1,9 @@
-h1 スポットを編集する
+h1 = @spot.name + "を編集"
 
 == render 'form'
 
 .container
-  => link_to 'Show', @spot
-  '|
-  =< link_to 'Back', spots_user_path(@user)
+
+  => link_to '詳細を見る', @spot, class:"btn waves-effect waves-light"
+  =< link_to '一覧へ戻る', spots_user_path(@user), class:"btn waves-effect waves-light"
 

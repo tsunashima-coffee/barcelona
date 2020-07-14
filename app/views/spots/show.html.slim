@@ -1,24 +1,31 @@
 p#notice = notice
 
-p
-  strong User:
-  = @spot.user.name
-p
-  strong Name:
-  = @spot.name
-p
-  strong Category:
-  = @spot.category.name
-p
-  strong Address:
-  = @spot.address
-p
-  strong Postal code:
-  = @spot.postal_code
-p
-  strong Neer station:
-  = @spot.neer_station
+h1 = @spot.name + "の詳細"
+.row
+.container
+  .col.s12.z-depth-6
+    table 
+      tr
+        th ユーザー名
+        td = @spot.user.name
+  
+      tr
+        th カテゴリー
+        td = @spot.category.name
+  
+      tr
+        th 郵便番号
+        td = @spot.postal_code
+  
+      tr
+        th 郵便番号
+        td = @spot.address
 
-=> link_to 'Edit', edit_spot_path(@spot)
-'|
-=< link_to 'Back', spots_user_path(@user)
+      tr
+        th 最寄駅
+        td = @spot.neer_station
+    
+    .row
+    => link_to '編集', edit_spot_path(@spot), class:"btn waves-effect waves-light"
+    =< link_to '戻る', spots_user_path(@user), class:"btn waves-effect waves-light"
+  
