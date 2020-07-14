@@ -63,7 +63,8 @@ class UsersController < ApplicationController
 
   def spots
     @user_name = @user.name
-    
+    @categories = Category.all 
+
     if params[:cotegory_id].present?
       @spots = @user.spots.where(category_id: params[:cotegory_id])
     else
