@@ -1,31 +1,39 @@
-h1
+h1 = @user.name + "のリスト一覧"
 
-table.table.table-bordered
-  thead
-    tr
-      th User
-      th Category
-      th Name
-      th Address
-      th Postal code
-      th Neer station
-      th
-      th
-      th
-
-  tbody
-    - @spots.each do |spot|
+.container
+  - @categories.each do |category|
+    =label_tag
+      =radio_button :check, "", category.id, class: "browser-default"
+      span = category.name
+  .row
+  table.table.table-bordered
+    thead
       tr
-        td = @user_name
-        td = spot.category.name
-        td = spot.name
-        td = spot.address
-        td = spot.postal_code
-        td = spot.neer_station
-        td = link_to 'Show', spot
-        td = link_to 'Edit', edit_spot_path(spot)
-        td = link_to 'Destroy', spot, data: { confirm: 'Are you sure?' }, method: :delete
+        th User
+        th Category
+        th Name
+        th Address
+        th Postal code
+        th Neer station
+        th
+        th
+        th
+
+    tbody
+      - @spots.each do |spot|
+        tr
+          td = @user_name
+          td = spot.category.name
+          td = spot.name
+          td = spot.address
+          td = spot.postal_code
+          td = spot.neer_station
+          td = link_to 'Show', spot
+          td = link_to 'Edit', edit_spot_path(spot)
+          td = link_to 'Destroy', spot, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Spot', new_spot_path
+.container
+  = link_to '新規登録', new_spot_path, class:"btn waves-effect waves-light"
+
