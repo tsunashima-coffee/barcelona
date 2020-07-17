@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.logout {
+    color: #03a9f4!important;
+}

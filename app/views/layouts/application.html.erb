@@ -13,9 +13,12 @@
     <%= javascript_pack_tag 'categoryLink', 'data-turbolinks-track': 'reload' %>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">barcelona</a>
+      <% if current_user  %>
+        <%= link_to('Logout',session_path, class: 'logout' , method: :delete) %>
+      <% end%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon">
-           <a class="navbar-brand" href="/logout">logout</a>
+           <a class="navbar-brand" href="/">logout</a>
           </span>
         </button>
     </nav>
